@@ -9,7 +9,7 @@
 		<!-- Telefone -->
 		<fieldset class = "form-group" ng-class="{ 'has-error' : cadastro.telefone.$invalid && !cadastro.telefone.$pristine }">
 			<label for = "telefone">Telefone:</label>
-			<input id = "telefone" name = "telefone" type = "tel" pattern='[\+][0-9]{2}[\(][0-9]{2}[\)][0-9]{4}[\-][0-9]{4}' placeholder = "+99(99)9999-9999"class = "form-control" ng-model = "aluno.telefone" required></input>
+			<input id = "telefone" name = "telefone" type = "tel" placeholder = "(99) 99999-9999" class = "form-control" ng-model = "aluno.telefone" required onfocus = "$('#telefone').maskbrphone();"></input>
 			<p ng-show = "cadastro.telefone.$invalid && !cadastro.telefone.$pristine" class = "help-block">Preencha o campo telefone corretamente</p>
 		</fieldset>
 		<!-- Email -->
@@ -30,7 +30,15 @@
 			<div class = "radio">
 				<label><input type = "radio" name = "curso" value = "direito" ng-model = "aluno.curso" ng-required = "!curso"></input>Direito</label>			
 			<div class = "radio">
-				<label><input type = "radio" name = "curso" value = "geografia" ng-model = "aluno.curso" ng-required = "!curso"></input>Geografia</label>
+				<label>
+					<input
+						type="radio"
+						name="curso"
+						value="geografia"
+						ng-model="aluno.curso"
+						ng-required="!curso">
+					</input> Geografia
+					</label>
 			</div>
 			<div class = "radio">
 				<label><input type = "radio" name = "curso" value = "sistemas de informação" ng-model = "aluno.curso" ng-required = "!curso"></input>Sistemas de Informação</label>
@@ -38,7 +46,7 @@
 			<div class = "radio">
 				<label><input type = "radio" name = "curso" value = "tecnologia em alimentos" ng-model = "aluno.curso" ng-required = "!curso"></input>Tecnologia em Alimentos</label>
 			</div>
-			<div class = "radio">
+			<div class="radio">
 				<label><input type = "radio" name = "curso" value = "tecnologia em produção sucroalcooleira"ng-model = "aluno.curso" ng-required = "!curso"></input>Tecnologia em Produção Sucroalcooleira</label>
 			</div>
 			<p ng-show = "cadastro.curso.$invalid" class = "help-block">Selecione um curso</p>
