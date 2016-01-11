@@ -1,0 +1,51 @@
+<div class = "jumbotron">
+	<form name = "cadastro" ng-controller = "ValidationController as validationCtrl" ng-submit = "submitForm(cadastro.$valid)" novalidate>
+		<!-- Nome -->
+		<fieldset class = "form-group" ng-class="{ 'has-error' : cadastro.nome.$invalid && !cadastro.nome.$pristine }">
+			<label for = "nome">Nome:</label>
+			<input id = "nome" name = "nome" type = "text" class = "form-control" ng-model = "aluno.nome" placeholder = "João Augusto" required></input>
+			<p ng-show="cadastro.nome.$invalid && !cadastro.nome.$pristine" class = "help-block">Preencha o campo nome</p>
+		</fieldset>
+		<!-- Telefone -->
+		<fieldset class = "form-group" ng-class="{ 'has-error' : cadastro.telefone.$invalid && !cadastro.telefone.$pristine }">
+			<label for = "telefone">Telefone:</label>
+			<input id = "telefone" name = "telefone" type = "tel" pattern='[\+][0-9]{2}[\(][0-9]{2}[\)][0-9]{4}[\-][0-9]{4}' placeholder = "+99(99)9999-9999"class = "form-control" ng-model = "aluno.telefone" required></input>
+			<p ng-show = "cadastro.telefone.$invalid && !cadastro.telefone.$pristine" class = "help-block">Preencha o campo telefone corretamente</p>
+		</fieldset>
+		<!-- Email -->
+		<fieldset class = "form-group" ng-class="{ 'has-error' : cadastro.email.$invalid && !cadastro.email.$pristine }">
+			<label for "email">Email:</label>
+			<input id = "email" name = "email" type = "email" class = "form-control" ng-model = "aluno.email" placeholder = "joao@uemg.br" required></input>
+			<p ng-show = "cadastro.email.$invalid && !cadastro.email.$pristine" class = "help-block">Preencha o campo email corretamente</p>
+		</fieldset>
+		<!-- Cursos -->
+		<fieldset class = "form-group"  ng-class="{ 'has-error' : cadastro.curso.$invalid }">
+			<label>Curso:</label>
+			<div class = "radio">
+				<label><input type = "radio" name = "curso" value = "administracão" ng-model = "aluno.curso" ng-required = "!curso"></input>Administração</label>	
+			</div>
+			<div class = "radio">
+				<label><input type = "radio" name = "curso" value = "comunicação social" ng-model = "aluno.curso" ng-required = "!curso"></input>Comunicação Social</label>		
+			</div>
+			<div class = "radio">
+				<label><input type = "radio" name = "curso" value = "direito" ng-model = "aluno.curso" ng-required = "!curso"></input>Direito</label>			
+			<div class = "radio">
+				<label><input type = "radio" name = "curso" value = "geografia" ng-model = "aluno.curso" ng-required = "!curso"></input>Geografia</label>
+			</div>
+			<div class = "radio">
+				<label><input type = "radio" name = "curso" value = "sistemas de informação" ng-model = "aluno.curso" ng-required = "!curso"></input>Sistemas de Informação</label>
+			</div>
+			<div class = "radio">
+				<label><input type = "radio" name = "curso" value = "tecnologia em alimentos" ng-model = "aluno.curso" ng-required = "!curso"></input>Tecnologia em Alimentos</label>
+			</div>
+			<div class = "radio">
+				<label><input type = "radio" name = "curso" value = "tecnologia em produção sucroalcooleira"ng-model = "aluno.curso" ng-required = "!curso"></input>Tecnologia em Produção Sucroalcooleira</label>
+			</div>
+			<p ng-show = "cadastro.curso.$invalid" class = "help-block">Selecione um curso</p>
+		</fieldset> 
+		<fieldset class = "form-group">	
+			<button type = "submit" class = "btn btn-default">Enviar</button>
+			<button type = "button" class = "btn btn-default" ng-click = "resetForm()">Limpar</button>
+		</fieldset>
+	</form>
+</div>
